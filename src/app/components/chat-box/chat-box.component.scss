@@ -1,0 +1,12 @@
+
+.messages-list li {
+    display: flex;
+}
+
+.my-message {
+    justify-content: flex-end;
+}
+
+.others-message {
+    justify-content: flex-start;
+}

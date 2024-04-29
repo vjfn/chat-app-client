@@ -1,0 +1,13 @@
+<div class='user-list-container'>
+  <div>
+      <input type="text" placeholder="Add user" [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
+          [disabled]="userSended" />
+      <button (click)="addUser()" [disabled]="userSended">{{userSended ? 'Adding...' : 'Add'}}</button>
+  </div>
+  <div class='user-list'>
+      <div *ngFor="let user of users" class='user-list-item' (click)='selectUser(user.name)'>
+          <span>{{user.name}} | </span>
+          <span>{{user.online ? 'Online' : 'Offline'}}</span>
+      </div>
+  </div>
+</div>

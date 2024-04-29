@@ -1,0 +1,33 @@
+.mainSlide, .mainSlide swiper-slide {
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pepe{
+    width: 100%;
+    height: 100%;
+    margin-top: 35%;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 120px;
+
+}
+
+.pick-avatar {
+    width: 80px;
+    opacity: 0.3;
+}
+
+.pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+}
+
+

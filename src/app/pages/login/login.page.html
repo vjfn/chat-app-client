@@ -1,0 +1,185 @@
+
+
+<ion-content class="ion-text-center">
+
+  <div class="ion-padding pepe" [hidden]="!div1Visible">
+    
+
+    <form (ngSubmit)="login(fLogin)" #fLogin="ngForm">
+      <ion-grid fixed>
+
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            <img src="/assets/avatars/av-1.png">
+          </ion-col>
+        </ion-row>
+      
+        <ion-row class="ion-align-items-center">
+          <ion-col>
+            
+              <ion-list>
+                
+                <ion-item>
+                  <ion-label></ion-label>
+                  <ion-input name="email"
+                              type="email"
+                              [(ngModel)]="loginUser.email"
+                              placeholder="Email"
+                              
+                              required></ion-input>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label></ion-label>
+                  <ion-input name="password"
+                              type="password"
+                              [(ngModel)]="loginUser.password"
+                              placeholder="Password"
+                              
+                              required></ion-input>
+                </ion-item>
+
+              </ion-list>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="ion-justify-content-center">
+          <ion-col>
+            <ion-button type="submit"
+                        color="tertiary"
+                        shape="round">
+              Login
+            </ion-button>
+
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </form>
+
+  </div>
+
+  <div [hidden]="div1Visible">
+
+  <swiper-container class="mainSlide">
+  <swiper-slide class="ion-padding" [hidden]="div1Visible">
+
+    
+    <ion-grid fixed>
+
+          <ion-row>
+          <ion-col>
+              <h3>Seleccione Avatar</h3>
+          </ion-col>
+          </ion-row>
+
+          <ion-row>
+          <ion-col>
+              <swiper-container [loop]="true" [slidesPerView]="3.5">
+                <swiper-slide *ngFor="let avatar of avatars"
+                >
+                    <ion-img class="pick-avatar" 
+                            src="/assets/avatars/{{avatar.img}}"
+                            [ngClass]="{ 'pick-avatar-seleccionado' : avatar.seleccionado}"
+                            (click)="seleccionarAvatar(avatar)"></ion-img>
+                </swiper-slide>
+              </swiper-container>
+          </ion-col>
+          </ion-row>
+      
+          <form (ngSubmit)="registro(fRegistro)" #fRegistro="ngForm">
+              <ion-row>
+                  <ion-col>
+                      
+                      <ion-list>
+                          
+                          <ion-item>
+                          <ion-label>Email: </ion-label>
+                          <ion-input name="email" 
+                                      type="email"
+                                      [(ngModel)]="registerUser.email"
+                                      required></ion-input>
+                          </ion-item>
+
+                          <ion-item>
+                          <ion-label>Nombre: </ion-label>
+                          <ion-input name="name"
+                                      type="text"
+                                      minlength="3"
+                                      [(ngModel)]="registerUser.name"
+                                      #myInput="ngModel"
+                                      required></ion-input>
+                                    </ion-item>
+                            <ion-text color="danger" *ngIf="myInput.invalid && myInput.dirty" >El nombre debe tener al menos 3 caracteres</ion-text>
+
+                          <ion-item>
+                          <ion-label>Password: </ion-label>
+                          <ion-input name="password"
+                                      type="password"
+                                      [(ngModel)]="registerUser.password"
+                                      required></ion-input>
+                          </ion-item>
+
+                      </ion-list>
+                  </ion-col>
+              </ion-row>
+              
+              <ion-row>
+              <ion-col>
+                  <ion-button type="submit"
+                              color="tertiary"
+                              shape="round">
+                      Crear usuario
+                  </ion-button>
+              </ion-col>
+          </ion-row>
+          
+          </form>
+
+      </ion-grid>
+
+
+  </swiper-slide>
+
+
+</swiper-container>
+
+</div>
+
+
+
+</ion-content>
+
+
+<ion-footer no-border>
+<ion-toolbar>
+  
+  <ion-row>
+
+    <ion-col>
+        <ion-button (click)="toggleDivs(1)" [disabled]="buttonDisabled[0]"
+        shape="round"
+                    expand="full"
+                    size="small"
+                    fill="outline"
+                    color="tertiary">
+          Ingresar
+        </ion-button>
+    </ion-col>
+
+    <ion-col>
+      <ion-button (click)="toggleDivs(2)" [disabled]="buttonDisabled[1]" shape="round"
+                  expand="full"
+                  size="small"
+                  fill="outline"
+                  color="tertiary">
+        Registrarme
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+
+
+
+</ion-toolbar>
+</ion-footer>
