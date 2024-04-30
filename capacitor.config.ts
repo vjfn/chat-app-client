@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: '09-fotosgram-cliente',
+  appId: 'io.ionic.quepasa.victor',
+  appName: 'QuéPasa',
   webDir: 'www'
 };
 
