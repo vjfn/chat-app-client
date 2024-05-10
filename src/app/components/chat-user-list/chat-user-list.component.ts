@@ -31,6 +31,13 @@ export class ChatUserListComponent {
     this.userStatusListener();
   }
 
+  formatLastSeen(lastSeen: string): string {
+    const date = new Date(lastSeen);
+    const formattedDate = date.toLocaleDateString(); 
+    const formattedTime = date.toLocaleTimeString(); 
+    return formattedDate + ' ' + formattedTime;
+  }
+
   async init() {
     const savedUsers = await this.storage.get('users');
     if (savedUsers) this.users = savedUsers;

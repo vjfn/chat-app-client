@@ -1,13 +1,28 @@
-<div class='user-list-container'>
-  <div>
-      <input type="text" placeholder="Add user" [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
-          [disabled]="userSended" />
-      <button (click)="addUser()" [disabled]="userSended">{{userSended ? 'Adding...' : 'Add'}}</button>
-  </div>
-  <div class='user-list'>
-      <div *ngFor="let user of users" class='user-list-item' (click)='selectUser(user.name)'>
-          <span>{{user.name}} | </span>
-          <span>{{user.online ? 'Online' : 'Offline'}}</span>
-      </div>
-  </div>
+<div class='user-list-container '>
+    <div class="ion-padding divadd">
+        <input type="text" placeholder="Nuevo amigo..." [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
+            [disabled]="userSended" />
+        <ion-button size="small" (click)="addUser()" [disabled]="userSended">
+            {{userSended ? 'Agregando...' : 'Agregar'}}
+            <ion-icon slot="start" name="person-add-outline"></ion-icon></ion-button>
+    </div>
+    <div class='user-list'>
+        <ion-row *ngFor="let user of users" class='user-list-item' (click)='selectUser(user.name)'>
+
+            <ion-col size="4">
+                <ion-avatar><ion-img src="/assets/avatars/{{user.avatar}}" size="small"></ion-img></ion-avatar>
+            </ion-col>
+
+            <ion-col size="4">
+                <span>{{user.name}} </span>
+                <!--  <span>Last Seen: </span> -->
+            </ion-col>
+
+            <ion-col size="4">
+                <span>{{user.online ? 'Online' : 'Offline'}}</span>
+                <!--   <span>{{formatLastSeen(user.lastSeen)}}</span> -->
+            </ion-col>
+
+        </ion-row>
+    </div>
 </div>

@@ -9,6 +9,7 @@ import { ChatBoxComponent } from './chat-box/chat-box.component';
 import { FormsModule } from '@angular/forms';
 import { ChatUserListComponent } from './chat-user-list/chat-user-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 
 
 
@@ -21,7 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ChatComponent,
     ChatBoxComponent,
     ChatUserListComponent,
-    NavbarComponent
+    NavbarComponent,
+    AvatarSelectorComponent
     
   ],
   imports: [
@@ -36,7 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ChatComponent,
     ChatBoxComponent,
     ChatUserListComponent,
-    NavbarComponent    
+    NavbarComponent,
+    AvatarSelectorComponent    
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

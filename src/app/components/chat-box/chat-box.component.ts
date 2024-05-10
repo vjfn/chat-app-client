@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChatBoxService } from 'src/app/services/chat-box.service';
 import { ChatService } from 'src/app/services/chat.service';
 
@@ -9,10 +9,12 @@ import { ChatService } from 'src/app/services/chat.service';
   styleUrls: ['./chat-box.component.scss'],
 })
 export class ChatBoxComponent {
+  @ViewChild('msgContainer') miElementoRef: ElementRef | undefined;
   public message: string = '';
   public messages: any = {};
 
   focusedUser: string = '';
+
 
   constructor(
     private chatService: ChatService,
@@ -45,6 +47,7 @@ export class ChatBoxComponent {
     this.chatService.sendMessage({ message: this.message, to: this.focusedUser });
     this.messages[this.focusedUser].push({ message: this.message, user: 'me' });
     this.message = '';
+    this.scrollToBottom();
   }
 
   public receiveMessage() {
@@ -52,6 +55,12 @@ export class ChatBoxComponent {
       console.log(data);
       if (!this.messages[data.from]) this.messages[data.from] = [];
       this.messages[data.from].push({ message: data.message, user: data.from });
+      this.scrollToBottom();
     });
+  }
+
+  scrollToBottom() {
+    const elemento: HTMLElement = this.miElementoRef?.nativeElement;
+    elemento.scrollTo({ top: elemento.scrollHeight, behavior: 'smooth' });
   }
 }

@@ -1,8 +1,15 @@
 .user-list-item {
-    padding: 10px;
+    padding: 2px;
     border: 1px solid;
+
+    display: flex;
+    align-items: center;
 }
 
 .user-list-item:hover {
     background-color: #f0f0f0;
+}
+.divadd{
+    display: flex;
+     align-items: center;
 }

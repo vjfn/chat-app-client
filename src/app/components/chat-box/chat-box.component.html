@@ -1,20 +1,23 @@
-<div class="container mt-5" *ngIf="messages">
-  <ul *ngIf="focusedUser.length" class="list-group messages-list">
-    <li *ngFor="let message of messages[focusedUser]">
-      <div>
-        <span class="font-weight-bold">{{message.user}}:</span>
-        <span>{{message.message}}</span>
-      </div>
-    </li>
-  </ul>
-  <div *ngIf="!focusedUser.length" class="alert alert-info">Select a user to start chatting</div>
-</div>
+<div class='chat-box-container'>
+  <div class="container mt-5 msg-container" *ngIf="messages"  #msgContainer>
+    <ul *ngIf="focusedUser.length" class="list-group messages-list">
+      <li *ngFor="let message of messages[focusedUser]">
+        <div>
+          <span class="font-weight-bold">{{message.user}}:</span>
+          <span>{{message.message}}</span>
+        </div>
+      </li>
+    </ul>
+    <div *ngIf="!focusedUser.length" class="alert alert-info">Select a user to start chatting</div>
+  </div>
 
-<ion-footer>
-  <ion-toolbar>
-    <form *ngIf="focusedUser.length">
-      <input type="text" name="message" [(ngModel)]="message">
-      <button (click)="sendMessage()">Send</button>
-    </form>
-  </ion-toolbar>
-</ion-footer>
+  <form *ngIf="focusedUser.length">
+    <ion-item>
+      <input type="text" name="message" [(ngModel)]="message" class="ion-margin">
+      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding rounded">
+        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+  </form>
+</div>

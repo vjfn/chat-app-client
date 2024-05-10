@@ -1,4 +1,17 @@
-<nav>
-  <span>Hola {{name}}</span>
-  <button (click)="logout()">Logout</button>
-</nav>
+
+  <ion-header>
+    <ion-toolbar mode="md">
+
+<!--       <ion-buttons slot="start" >
+        <ion-back-button defaultHref="/main/tabs/tab1" ></ion-back-button>
+        
+    
+      </ion-buttons> -->
+      <ion-title>Bienvenido! {{name}}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="logout()" slot="end">Logout</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  
+  </ion-header>
+
