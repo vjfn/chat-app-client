@@ -22,20 +22,22 @@ export class ChatBoxComponent {
   ) {
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.receiveMessage();
 
     if (this.chatBoxService.currentUser) {
       this.focusedUser = this.chatBoxService.currentUser;
     }
 
-    this.chatBoxService.focusedUser$.subscribe((user: any) => {
+    this.chatBoxService.focusedUser$.subscribe(async (user: any) => {
       if (user.name === this.focusedUser) return 
       this.focusedUser = user;
 
       if (!this.messages[user]) this.messages[user] = [];
       
       console.log(this.focusedUser);
+      await this.getLastMsgs();
+        this.scrollToBottom();
     });
   }
 
@@ -60,7 +62,24 @@ export class ChatBoxComponent {
   }
 
   scrollToBottom() {
-    const elemento: HTMLElement = this.miElementoRef?.nativeElement;
-    elemento.scrollTo({ top: elemento.scrollHeight, behavior: 'smooth' });
+    setTimeout(() => {
+      const elemento: HTMLElement = this.miElementoRef?.nativeElement;
+      elemento.scrollTo({ top: elemento.scrollHeight });
+    }, 200);
+  }
+
+  async getLastMsgs() {
+    const messages: any = await this.chatBoxService.getLastMsgs();
+    if (!messages) return;
+
+    console.log(messages);
+    messages.lastMsgs.sort(
+      (a: any, b: any) => new Date(a.created).getTime() - new Date(b.created).getTime()
+    ).forEach((msg: any) => {
+      this.messages[this.focusedUser].push({
+        message: msg.msg,
+        user: msg.owner.name === this.focusedUser ? this.focusedUser : 'me'
+      });
+    });
   }
 }

@@ -1,19 +1,35 @@
+<!-- <div class='chat-box-container dark'>
+  <div class="container mt-5 msg-container" *ngIf="messages" #msgContainer>
+    <div *ngFor="let message of messages[focusedUser]" [ngClass]="{'my-message': message.user === 'myUserName', 'others-message': message.user !== 'myUserName'}">
+      <span class="font-weight-bold user-name">{{message.user}}:</span>
+      <span class="message-content">{{message.message}}</span>
+    </div>
+    <div *ngIf="!focusedUser.length" class="alert alert-info">Select a user to start chatting</div>
+  </div>
+
+  <form *ngIf="focusedUser.length" class="message-form">
+    <ion-item>
+      <input type="text" name="message" [(ngModel)]="message" class="ion-margin message-input">
+      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding rounded send-button">
+        <ion-icon slot="icon-only" name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </form>
+</div> -->
+
+
 <div class='chat-box-container'>
-  <div class="container mt-5 msg-container" *ngIf="messages"  #msgContainer>
-    <ul *ngIf="focusedUser.length" class="list-group messages-list">
-      <li *ngFor="let message of messages[focusedUser]">
-        <div>
-          <span class="font-weight-bold">{{message.user}}:</span>
-          <span>{{message.message}}</span>
-        </div>
-      </li>
-    </ul>
+  <div class="container mt-5 msg-container" *ngIf="messages" #msgContainer>
+    <div *ngFor="let message of messages[focusedUser]" [ngClass]="{'my-message': message.user === 'me', 'others-message': message.user !== 'me'}">
+      <span class="font-weight-bold">{{message.user}}:</span>
+      <span>{{message.message}}</span>
+    </div>
     <div *ngIf="!focusedUser.length" class="alert alert-info">Select a user to start chatting</div>
   </div>
 
   <form *ngIf="focusedUser.length">
     <ion-item>
-      <input type="text" name="message" [(ngModel)]="message" class="ion-margin">
+      <input type="text" name="message" [(ngModel)]="message" class="ion-margin send-button">
       <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding rounded">
         <ion-icon slot="icon-only" name="send-outline"></ion-icon>
       </ion-button>

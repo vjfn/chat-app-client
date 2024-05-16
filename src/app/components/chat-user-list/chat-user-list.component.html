@@ -2,7 +2,7 @@
     <div class="ion-padding divadd">
         <input type="text" placeholder="Nuevo amigo..." [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
             [disabled]="userSended" />
-        <ion-button size="small" (click)="addUser()" [disabled]="userSended">
+        <ion-button  color="qplightblue" size="small" (click)="addUser()" [disabled]="userSended">
             {{userSended ? 'Agregando...' : 'Agregar'}}
             <ion-icon slot="start" name="person-add-outline"></ion-icon></ion-button>
     </div>
@@ -18,8 +18,8 @@
                 <!--  <span>Last Seen: </span> -->
             </ion-col>
 
-            <ion-col size="4">
-                <span>{{user.online ? 'Online' : 'Offline'}}</span>
+            <ion-col size="4" [ngClass]="getUserStatusClass(user)">
+                <span>{{user.online ? 'Online' : 'Offline'}}<ion-icon name="{{user.online ? 'flash' : 'flash-off-outline'}}"></ion-icon></span>
                 <!--   <span>{{formatLastSeen(user.lastSeen)}}</span> -->
             </ion-col>
 

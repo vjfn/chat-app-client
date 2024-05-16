@@ -1,17 +1,121 @@
-.messages-list {
-    margin-top: auto;
-}
-
-.messages-list li {
-    display: flex;
-}
-
-.my-message {
+/*  .my-message {
     justify-content: flex-end;
+    align-items: flex-end;
+    background-color: #343a40; 
+    color: #fff; 
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 60%;
+    align-self: flex-end;
+    word-wrap: break-word;
 }
 
 .others-message {
     justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #495057;
+    color: #fff; 
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 60%;
+    align-self: flex-start;
+    word-wrap: break-word;
+}
+
+.chat-box-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #212529;
+}
+
+.msg-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.msg-container > div {
+    padding: 10px;
+    color: #fff;
+}
+
+.msg-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/assets/dragons2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+    background-position: center;
+}
+
+form {
+    width: 100%;
+    padding: 10px;
+    background-color: #343a40;
+    border-top: 1px solid #495057;
+}
+
+.message-input {
+    flex: 1;
+    border: 1px solid #495057;
+    border-radius: 8px;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff; 
+}
+
+.send-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.send-button ion-icon {
+    font-size: 1.2rem;
+    color: #fff; 
+}
+  */
+
+//The originals
+
+.send-button{
+    border: 1px solid #495057;
+    border-radius: 8px;
+}
+.messages-list {
+    margin-top: auto;
+}
+
+
+.my-message {
+    justify-content: flex-end;
+    background-color: rgba(49, 60, 52, 0.5);
+    border-radius: 10px; 
+    padding: 10px;
+    margin-bottom: 5px; 
+    margin-left: 85px;
+
+}
+
+.others-message {
+    justify-content: flex-start;
+    background-color: rgba(30, 30, 30, 0.5);
+    border-radius: 10px; 
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-right: 85px;
+
 }
 
 .chat-box-container {
@@ -21,27 +125,32 @@
 }
 
 .msg-container {
-    height: 85%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     overflow: auto;
 }
+
+.msg-container > div {
+    padding: 15px;
+}
+
 .msg-container::before {
-    content: ""; 
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/assets/dragons2.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/assets/dragons2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
     opacity: 0.1;
-    z-index: -1; 
+    z-index: -1;
+    background-position: center;
 }
 
 form {
-    position: fixed;
-    bottom: 0;
+    width: 100%;
+
 }

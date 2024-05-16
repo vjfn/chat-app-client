@@ -13,40 +13,11 @@ export class Tab1Page implements OnInit{
 
   habilitado = true;
 
-  constructor( private postService: PostsService) {}
+  constructor() {}
 
   ngOnInit() {
 
-    this.siguientes();
-
-    
   }
 
-  recargar(event:any) {
-
-    this.siguientes(event, true);
-    this.habilitado= true;
-    this.posts =  [];
-
-  }
-
-  siguientes(event?: any, pull: boolean = false) {
-
-    setTimeout(() => { // Agregamos el timeout aquí
-      this.postService.getPost(pull)
-        .subscribe((resp: any) => {
-          console.log(resp);
-          this.posts.push(...resp.posts);
-
-          if (event) {
-            event.target.complete();
-
-            if (resp.posts.length === 0) {
-              this.habilitado = false;
-            }
-          }
-        });
-    }, 1500); // 1500 ms de retraso
-  }
 
 }

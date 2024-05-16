@@ -1,2 +1,85 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+	--ion-color-qpdarkestblue: #0e1c2c;
+	--ion-color-qpdarkestblue-rgb: 14,28,44;
+	--ion-color-qpdarkestblue-contrast: #ffffff;
+	--ion-color-qpdarkestblue-contrast-rgb: 255,255,255;
+	--ion-color-qpdarkestblue-shade: #0c1927;
+	--ion-color-qpdarkestblue-tint: #263341;
+
+    --ion-color-qpdarkblue: #355680;
+	--ion-color-qpdarkblue-rgb: 53,86,128;
+	--ion-color-qpdarkblue-contrast: #ffffff;
+	--ion-color-qpdarkblue-contrast-rgb: 255,255,255;
+	--ion-color-qpdarkblue-shade: #2f4c71;
+	--ion-color-qpdarkblue-tint: #49678d;
+
+    --ion-color-qpblue: #567ebf;
+	--ion-color-qpblue-rgb: 86,126,191;
+	--ion-color-qpblue-contrast: #000000;
+	--ion-color-qpblue-contrast-rgb: 0,0,0;
+	--ion-color-qpblue-shade: #4c6fa8;
+	--ion-color-qpblue-tint: #678bc5;
+
+    --ion-color-qplightblue: #44a3bd;
+	--ion-color-qplightblue-rgb: 68,163,189;
+	--ion-color-qplightblue-contrast: #000000;
+	--ion-color-qplightblue-contrast-rgb: 0,0,0;
+	--ion-color-qplightblue-shade: #3c8fa6;
+	--ion-color-qplightblue-tint: #57acc4;
+
+    --ion-color-qpteal: #32d9c3;
+	--ion-color-qpteal-rgb: 50,217,195;
+	--ion-color-qpteal-contrast: #000000;
+	--ion-color-qpteal-contrast-rgb: 0,0,0;
+	--ion-color-qpteal-shade: #2cbfac;
+	--ion-color-qpteal-tint: #47ddc9;
+}
+
+.ion-color-qpdarkestblue {
+	--ion-color-base: var(--ion-color-qpdarkestblue);
+	--ion-color-base-rgb: var(--ion-color-qpdarkestblue-rgb);
+	--ion-color-contrast: var(--ion-color-qpdarkestblue-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-qpdarkestblue-contrast-rgb);
+	--ion-color-shade: var(--ion-color-qpdarkestblue-shade);
+	--ion-color-tint: var(--ion-color-qpdarkestblue-tint);
+}
+
+.ion-color-qpdarkblue {
+	--ion-color-base: var(--ion-color-qpdarkblue);
+	--ion-color-base-rgb: var(--ion-color-qpdarkblue-rgb);
+	--ion-color-contrast: var(--ion-color-qpdarkblue-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-qpdarkblue-contrast-rgb);
+	--ion-color-shade: var(--ion-color-qpdarkblue-shade);
+	--ion-color-tint: var(--ion-color-qpdarkblue-tint);
+}
+
+.ion-color-qpblue {
+	--ion-color-base: var(--ion-color-qpblue);
+	--ion-color-base-rgb: var(--ion-color-qpblue-rgb);
+	--ion-color-contrast: var(--ion-color-qpblue-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-qpblue-contrast-rgb);
+	--ion-color-shade: var(--ion-color-qpblue-shade);
+	--ion-color-tint: var(--ion-color-qpblue-tint);
+}
+
+.ion-color-qplightblue {
+	--ion-color-base: var(--ion-color-qplightblue);
+	--ion-color-base-rgb: var(--ion-color-qplightblue-rgb);
+	--ion-color-contrast: var(--ion-color-qplightblue-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-qplightblue-contrast-rgb);
+	--ion-color-shade: var(--ion-color-qplightblue-shade);
+	--ion-color-tint: var(--ion-color-qplightblue-tint);
+}
+
+.ion-color-qpteal {
+	--ion-color-base: var(--ion-color-qpteal);
+	--ion-color-base-rgb: var(--ion-color-qpteal-rgb);
+	--ion-color-contrast: var(--ion-color-qpteal-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-qpteal-contrast-rgb);
+	--ion-color-shade: var(--ion-color-qpteal-shade);
+	--ion-color-tint: var(--ion-color-qpteal-tint);
+}

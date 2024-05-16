@@ -21,7 +21,7 @@ export class UsuarioService {
     private storage: Storage,
     private chatService: ChatService,
     private navCtrl: NavController
-    ) { }
+  ) { }
 
   login(email: string, password: string) {
 
@@ -74,9 +74,9 @@ export class UsuarioService {
 
 
   //Estas tres
-  async getUsuario(){
+  async getUsuario() {
 
-    if (!this.user._id){
+    if (!this.user._id) {
       this.validaToken();
     }
 
@@ -86,11 +86,11 @@ export class UsuarioService {
   }
 
   //Esta tb
-  async validaToken(): Promise<boolean>{
+  async validaToken(): Promise<boolean> {
 
     await this.getToken();
 
-    if (!this.token){
+    if (!this.token) {
       this.navCtrl.navigateRoot('/login')
       return Promise.resolve(false);
     }
@@ -101,24 +101,24 @@ export class UsuarioService {
         'x-token': this.token
       })
 
-      this.http.get(`${URL}/user/`, {headers})
-      .subscribe((resp: any) => {
+      this.http.get(`${url}/user/`, { headers })
+        .subscribe((resp: any) => {
 
-       if (resp['ok']){
-        this.user = resp['user']
-        resolve(true)
+          if (resp['ok']) {
+            this.user = resp['user']
+            resolve(true)
 
-       }else{
-        this.navCtrl.navigateRoot('/login')
-        resolve(false);
-       }
+          } else {
+            this.navCtrl.navigateRoot('/login')
+            resolve(false);
+          }
 
-      })
+        })
 
     });
   }
   //y esta
-  actualizarUsuario(user:Usuario){
+  actualizarUsuario(user: Usuario) {
 
     const headers = new HttpHeaders({
       'x-token': this.token
@@ -126,22 +126,22 @@ export class UsuarioService {
 
     console.log(user)
 
-    return new Promise (resolve =>{
+    return new Promise(resolve => {
 
-      this.http.put(`${ url }/user/update`, user, {headers})
-    .subscribe((resp:any) =>{
+      this.http.put(`${url}/user/update`, user, { headers })
+        .subscribe((resp: any) => {
 
-      console.log(resp)
+          console.log(resp)
 
-      if (resp['ok']){
-        this.guardarToken( resp['token']);
-        resolve(true);
-      }else{
-        resolve(false);
+          if (resp['ok']) {
+            this.guardarToken(resp['token']);
+            resolve(true);
+          } else {
+            resolve(false);
 
-      }
+          }
 
-    })
+        })
 
     })
   }

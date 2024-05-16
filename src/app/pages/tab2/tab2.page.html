@@ -3,21 +3,19 @@
     <ion-toolbar>
 
       <ion-buttons slot="start" class="ion-margin">
-        <ion-back-button defaultHref="/main/tabs/tab1" color="primary"></ion-back-button>
-      </ion-buttons>
-      <ion-item>
-        <ion-title *ngIf="focusedUserInfo" color="primary">{{focusedUserInfo.name}}</ion-title>
-        <ion-title *ngIf="!focusedUserInfo" color="primary">
-          Seleccione un amigo</ion-title>
-        <ion-label *ngIf="focusedUserInfo">ult. vez hace: {{ lastSeenTime }} </ion-label>
-      </ion-item>
-      
-  
-      <ion-buttons slot="start">
-        <ion-avatar>
+        <ion-back-button defaultHref="/main/tabs/tab1" color="qplightblue"></ion-back-button>
+        <ion-avatar class='avatar-container'>
           <ion-img *ngIf="focusedUserInfo" src="/assets/avatars/{{focusedUserInfo.avatar}}" size="small"></ion-img>
         </ion-avatar>
       </ion-buttons>
+
+      <div class='name-container'>
+        <ion-label *ngIf="focusedUserInfo" color="qplightblue">{{focusedUserInfo.name}}</ion-label>
+        <span *ngIf="!focusedUserInfo" color="qplightblue">
+          Seleccione un amigo</span>
+        <span *ngIf="focusedUserInfo">ult. vez hace: {{ lastSeenTime }} </span>
+      </div>
+      
 
 
     </ion-toolbar>

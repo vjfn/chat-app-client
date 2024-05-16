@@ -3,7 +3,7 @@
 <ion-content class="ion-text-center">
 
   <div class="ion-padding pepe" [hidden]="!div1Visible">
-    
+ 
 
     <form (ngSubmit)="login(fLogin)" #fLogin="ngForm">
       <ion-grid fixed>
@@ -45,8 +45,9 @@
 
         <ion-row class="ion-justify-content-center">
           <ion-col>
-            <ion-button type="submit"
-                        color="tertiary"
+            <ion-button class="rotating-color-button" color="rotating-color-button"
+            type="submit"
+                        
                         shape="round">
               Login
             </ion-button>
@@ -127,7 +128,7 @@
               <ion-row>
               <ion-col>
                   <ion-button type="submit"
-                              color="tertiary"
+                              color="qpblue"
                               shape="round">
                       Crear usuario
                   </ion-button>
@@ -162,7 +163,7 @@
                     expand="full"
                     size="small"
                     fill="outline"
-                    color="tertiary">
+                    color="qpblue">
           Ingresar
         </ion-button>
     </ion-col>
@@ -172,7 +173,7 @@
                   expand="full"
                   size="small"
                   fill="outline"
-                  color="tertiary">
+                  color="qpblue">
         Registrarme
       </ion-button>
     </ion-col>

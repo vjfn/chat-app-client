@@ -31,7 +31,32 @@
  * For more info, please see:
  * https://ionicframework.com/docs/theming/dark-mode
  */
+ 
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.always.css";
+@import "@ionic/angular/css/palettes/dark.class.css";
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+@keyframes colorRotation {
+    0% {
+      --ion-color-base: var(--ion-color-qpdarkblue);
+    }
+    25% {
+      --ion-color-base: var(--ion-color-qpblue);
+    }
+    50% {
+      --ion-color-base: var(--ion-color-qplightblue);
+    }
+    75% {
+      --ion-color-base: var(--ion-color-qpteal);
+    }
+    100% {
+      --ion-color-base: var(--ion-color-qpdarkblue);
+    }
+  }
+  
+  .rotating-color-button {
+    animation: colorRotation 10s infinite;
+    transition: background-color 2s ease-in-out;
+  }
+

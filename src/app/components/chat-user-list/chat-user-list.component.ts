@@ -72,4 +72,8 @@ export class ChatUserListComponent {
     this.chatBoxService.setFocusedUser(user);
     this.navcontroller.navigateRoot('main/tabs/tab2', { animated: true })
   }
+
+  getUserStatusClass(user: any): string {
+    return user.online ? 'online' : 'offline';
+  }
 }
