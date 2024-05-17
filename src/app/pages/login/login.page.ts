@@ -42,9 +42,9 @@ export class LoginPage {
   };
 
   registerUser : Usuario = {
-    email: 'test',
+    email: 'test@test.com',
     password: '12345',
-    name: 'T',
+    name: 'Test',
     avatar: 'av-1.png'
 
   };

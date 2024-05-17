@@ -30,7 +30,7 @@
   <form *ngIf="focusedUser.length">
     <ion-item>
       <input type="text" name="message" [(ngModel)]="message" class="ion-margin send-button">
-      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding rounded">
+      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding">
         <ion-icon slot="icon-only" name="send-outline"></ion-icon>
       </ion-button>
 

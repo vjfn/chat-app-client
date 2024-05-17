@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ChatBoxService } from 'src/app/services/chat-box.service';
 import { ChatService } from 'src/app/services/chat.service';
 

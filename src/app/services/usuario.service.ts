@@ -73,7 +73,6 @@ export class UsuarioService {
   }
 
 
-  //Estas tres
   async getUsuario() {
 
     if (!this.user._id) {
@@ -85,7 +84,6 @@ export class UsuarioService {
     return this.user
   }
 
-  //Esta tb
   async validaToken(): Promise<boolean> {
 
     await this.getToken();
@@ -117,7 +115,7 @@ export class UsuarioService {
 
     });
   }
-  //y esta
+
   actualizarUsuario(user: Usuario) {
 
     const headers = new HttpHeaders({

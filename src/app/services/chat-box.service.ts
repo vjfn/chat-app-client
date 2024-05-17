@@ -25,7 +25,12 @@ export class ChatBoxService {
     private usuarioService: UsuarioService
   ) { }
 
-  public setFocusedUser(user: any) {
+/*   public setFocusedUser(user: any) {
+    this.currentUser = user;
+    this.observaFocusedUser.next(user);
+  } */
+
+  public setFocusedUser(user: any){
     this.currentUser = user;
     this.observaFocusedUser.next(user);
   }

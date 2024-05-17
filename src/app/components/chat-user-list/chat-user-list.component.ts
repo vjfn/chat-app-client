@@ -12,7 +12,7 @@ import { UiServiceService } from 'src/app/services/ui-service.service';
   templateUrl: './chat-user-list.component.html',
   styleUrls: ['./chat-user-list.component.scss'],
 })
-export class ChatUserListComponent {
+export class ChatUserListComponent implements OnInit {
 
   public users: any = [];
 
@@ -29,6 +29,13 @@ export class ChatUserListComponent {
     this.addUserListener();
     this.init();
     this.userStatusListener();
+  }
+
+  ngOnInit() {
+    this.addUserListener();
+    this.init();
+    this.userStatusListener();
+    
   }
 
   formatLastSeen(lastSeen: string): string {
@@ -68,10 +75,26 @@ export class ChatUserListComponent {
     });
   }
 
-  public selectUser(user: any) {
+
+/*   public selectUser(user: any) {
     this.chatBoxService.setFocusedUser(user);
     this.navcontroller.navigateRoot('main/tabs/tab2', { animated: true })
+  } */
+
+  public async selectUser(user: any) {
+    try {
+      await new Promise<void>((resolve) => {
+        this.chatBoxService.setFocusedUser(user);
+        resolve();
+      });
+      await this.navcontroller.navigateRoot('main/tabs/tab2', { animated: true });
+    } catch (error) {
+      console.error('Error setting focused user:', error);
+    }
   }
+  
+
+
 
   getUserStatusClass(user: any): string {
     return user.online ? 'online' : 'offline';

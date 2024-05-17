@@ -1,6 +1,6 @@
 <div class='user-list-container '>
     <div class="ion-padding divadd">
-        <input type="text" placeholder="Nuevo amigo..." [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
+        <input class ="adduser" type="text" placeholder="Nuevo amigo..." [(ngModel)]="userToAdd" (keyup.enter)="addUser()"
             [disabled]="userSended" />
         <ion-button  color="qplightblue" size="small" (click)="addUser()" [disabled]="userSended">
             {{userSended ? 'Agregando...' : 'Agregar'}}
