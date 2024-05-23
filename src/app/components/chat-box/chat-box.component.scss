@@ -1,35 +1,32 @@
-
 //The originals
 
-.send-button{
+.send-button {
     border: 1px solid #495057;
     border-radius: 8px;
+    width: 100%;
 }
 .messages-list {
     margin-top: auto;
 }
 
-
 .my-message {
     justify-content: flex-end;
-/*     background-color: rgba(49, 60, 52, 0.5); */
-    border-radius: 10px; 
+    /*     background-color: rgba(49, 60, 52, 0.5); */
+    border-radius: 10px;
     padding: 10px;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
     margin-right: 5px;
     margin-left: 85px;
-
 }
 
 .others-message {
     justify-content: flex-start;
-/*     background-color: rgba(30, 30, 30, 0.5); */
-    border-radius: 10px; 
+    /*     background-color: rgba(30, 30, 30, 0.5); */
+    border-radius: 10px;
     padding: 10px;
     margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 85px;
-
 }
 
 .chat-box-container {
@@ -50,7 +47,7 @@
 }
 
 .msg-container::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -66,37 +63,44 @@
 
 form {
     width: 100%;
-
 }
 
 /* Estilos para el modo claro */
 @media (prefers-color-scheme: light) {
     .my-message {
-      background-color: rgba(188, 255, 153, 0.5);
+        background-color: rgba(188, 255, 153, 0.5);
     }
-  
+
     .others-message {
-      background-color: rgba(157, 157, 157, 0.5);
+        background-color: rgba(157, 157, 157, 0.5);
     }
 
     form {
         border-top: solid 1px;
 
-        box-shadow: 0 -2px 4px -1px rgba(0, 0, 0, 0.2),
-                    0 -4px 5px 0 rgba(0, 0, 0, 0.14),
-                    0 -1px 10px 0 rgba(0, 0, 0, 0.12);
-
-
+        box-shadow:
+            0 -2px 4px -1px rgba(0, 0, 0, 0.2),
+            0 -4px 5px 0 rgba(0, 0, 0, 0.14),
+            0 -1px 10px 0 rgba(0, 0, 0, 0.12);
     }
-  }
-  
-  /* Estilos para el modo oscuro */
-  @media (prefers-color-scheme: dark) {
+}
+
+/* Estilos para el modo oscuro */
+@media (prefers-color-scheme: dark) {
     .my-message {
         background-color: rgba(49, 60, 52, 0.5);
     }
-  
+
     .others-message {
         background-color: rgba(30, 30, 30, 0.5);
     }
-  }
+}
+
+.upload-label {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.upload-label * {
+    pointer-events: none;
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { map } from 'rxjs';
+import { map, Subject } from 'rxjs';
 import { UsuarioService } from './usuario.service';
 import { Usuario } from '../interfaces/interfaces';
 import { Storage } from '@ionic/storage-angular';
@@ -9,6 +9,10 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root'
 })
 export class ChatService {
+
+  private observaLogedUser = new Subject<any>();
+  logedUser$ = this.observaLogedUser.asObservable();
+
 
   constructor(
     private socket: Socket,
@@ -35,7 +39,7 @@ export class ChatService {
     this.socket.emit('logout');
   }
 
-  public sendMessage(data: { message: string, to: string }) {
+  public sendMessage(data: { message: string, to: string, file: any }) {
     this.socket.emit('message-to-user', data);
   }
 
@@ -50,6 +54,7 @@ export class ChatService {
 
   public login(name: string) {
     this.socket.emit('login', { name });
+    this.observaLogedUser.next(name);
   }
 
   public addUser(user: string) {

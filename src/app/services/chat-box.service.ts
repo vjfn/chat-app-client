@@ -25,16 +25,16 @@ export class ChatBoxService {
     private usuarioService: UsuarioService
   ) { }
 
-/*   public setFocusedUser(user: any) {
-    this.currentUser = user;
-    this.observaFocusedUser.next(user);
-  } */
+  /*   public setFocusedUser(user: any) {
+      this.currentUser = user;
+      this.observaFocusedUser.next(user);
+    } */
 
-  public setFocusedUser(user: any){
+  public setFocusedUser(user: any) {
     this.currentUser = user;
     this.observaFocusedUser.next(user);
   }
- 
+
   public async getFocusedUserInfo() {
     const users = await this.storage.get('users');
     return users?.find((user: any) => user.name === this.currentUser);
@@ -42,7 +42,7 @@ export class ChatBoxService {
 
   public async getLastMsgs() {
     if (!this.token) {
-     this.token = await this.usuarioService.getToken();
+      this.token = await this.usuarioService.getToken();
     }
 
     const headers = new HttpHeaders({
@@ -55,7 +55,28 @@ export class ChatBoxService {
       }, { headers })
         .subscribe((resp: any) => {
           resolve(resp);
-      });
+        });
+    });
+  }
+
+  async sendImage(file: File) {
+    if (!this.token) {
+      this.token = await this.usuarioService.getToken();
+    }
+
+    const headers = new HttpHeaders({
+      'x-token': this.token
+    });
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    return new Promise(resolve => {
+
+      this.http.post(`${url}/msg/file`, formData, { headers })
+        .subscribe(async (resp: any) => {
+          resolve(resp);
+        })
     });
   }
 }

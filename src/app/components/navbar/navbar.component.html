@@ -5,7 +5,7 @@
       <ion-buttons slot="end">
         <ion-button (click)="presentPopover($event)" >
           <ion-avatar slot="start" small>
-            <img src="/assets/avatars/{{user.avatar}}" />
+            <img *ngIf="user" src="/assets/avatars/{{user.avatar}}" />
           </ion-avatar>
         </ion-button>
       </ion-buttons>

@@ -4,7 +4,6 @@ import { ChatService } from '../../services/chat.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { IonPopover } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -27,7 +26,6 @@ export class NavbarComponent {
     this.init();
   }
 
-
   async presentPopover(ev: any) {
     const popover = await this.popover;
     popover.event = ev;
@@ -46,6 +44,9 @@ export class NavbarComponent {
   console.log('hey');
   console.log(this.user);
   if (this.user) this.name = this.user.name;
+  this.chatService.logedUser$.subscribe((name) => {
+    if (name) this.name = name;
+  });
 }
 
   public async logout() {
