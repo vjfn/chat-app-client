@@ -37,14 +37,14 @@ export class LoginPage {
   ];
 
   loginUser = {
-    email: 'test1@test.com', //victor@email.com
-    password: '123456' //12345
+    email: '', 
+    password: '' 
   };
 
   registerUser : Usuario = {
-    email: 'test@test.com',
-    password: '12345',
-    name: 'Test',
+    email: '',
+    password: '',
+    name: '',
     avatar: 'av-1.png'
 
   };
