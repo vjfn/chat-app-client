@@ -35,7 +35,9 @@ export class ChatUserListComponent implements OnInit {
     this.addUserListener();
     this.init();
     this.userStatusListener();
-    
+    this.chatService.logedUser$.subscribe((name) => {
+      if (name) this.init();
+    });
   }
 
   formatLastSeen(lastSeen: string): string {

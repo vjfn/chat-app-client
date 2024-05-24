@@ -36,8 +36,8 @@ export class UsuarioService {
           if (resp['ok']) {
             await this.guardarToken(resp['token']);
             await this.saveUser(resp['user']);
+            await this.storage.set('users', resp['user'].friends)
             this.chatService.login(resp['user'].name);
-            this.storage.set('users', resp['user'].friends)
             resolve(true)
           } else {
             this.token = null;

@@ -87,6 +87,8 @@ export class ChatBoxComponent {
     const messages: any = await this.chatBoxService.getLastMsgs();
     if (!messages) return;
 
+    this.messages[this.focusedUser] = [];
+
     console.log(messages);
     messages.lastMsgs.sort(
       (a: any, b: any) => new Date(a.created).getTime() - new Date(b.created).getTime()
