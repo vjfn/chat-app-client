@@ -38,7 +38,7 @@
         </ion-button>
       </label>
       <input type="text" name="message" [(ngModel)]="message" class="ion-margin send-button">
-      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding">
+      <ion-button (click)="sendMessage()" slot="end" shape="round" class="ion-padding" [disabled]="message.length < 1">
         <ion-icon slot="icon-only" name="send-outline"></ion-icon>
       </ion-button>
 

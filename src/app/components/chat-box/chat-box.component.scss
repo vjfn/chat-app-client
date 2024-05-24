@@ -16,7 +16,9 @@
     padding: 10px;
     margin-bottom: 5px;
     margin-right: 5px;
-    margin-left: 85px;
+    margin-left: auto;
+    max-width: 80%;
+    width: fit-content;
 }
 
 .others-message {
@@ -26,7 +28,9 @@
     padding: 10px;
     margin-bottom: 5px;
     margin-left: 5px;
-    margin-right: 85px;
+    margin-right: auto;
+    max-width: 80%;
+    width: fit-content;
 }
 
 .chat-box-container {
